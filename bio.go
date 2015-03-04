@@ -12,17 +12,17 @@ func scaledSin(x, interval float64) float64 {
 func biorythm(width, daysAlive int) (plots [3]*Plot) {
 	phisical := make([]int, width)
 	for i := 0; i < width; i++ {
-		phisical[i] = int(10 * scaledSin(float64(daysAlive+i), 23))
+		phisical[i] = int(7 * scaledSin(float64(daysAlive+i), 23))
 	}
 
 	emotional := make([]int, width)
 	for i := 0; i < width; i++ {
-		emotional[i] = int(10 * scaledSin(float64(daysAlive+i), 28))
+		emotional[i] = int(7 * scaledSin(float64(daysAlive+i), 28))
 	}
 
 	intel := make([]int, width)
 	for i := 0; i < width; i++ {
-		intel[i] = int(10 * scaledSin(float64(daysAlive+i), 33))
+		intel[i] = int(7 * scaledSin(float64(daysAlive+i), 33))
 	}
 
 	plot := &Plot{values: phisical, c: 'P', color: BLUE}
