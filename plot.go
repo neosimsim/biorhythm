@@ -5,9 +5,17 @@ import (
 	"strconv"
 )
 
+type color string
+
+const DEFAULT color = "\x1b[0;0m"
+const RED color = "\x1b[0;31m"
+const GREEN color = "\x1b[0;32m"
+const BLUE color = "\x1b[0;34m"
+
 type Plot struct {
 	values []int
 	c      rune
+	color  color
 }
 
 func maxInt(values []int) int {
@@ -52,10 +60,10 @@ func minOverPlots(plots []*Plot) int {
 	return min
 }
 
-func printRune(c rune) {
+func printRune(c rune, col color) {
 	quoted := strconv.QuoteRuneToASCII(c)
 	unquoted := quoted[1 : len(quoted)-1]
-	fmt.Printf(unquoted)
+	fmt.Print(col, unquoted, DEFAULT)
 }
 
 func firstPlotWithValueInLine(index, line int, plots []*Plot) (plot *Plot) {
@@ -73,7 +81,7 @@ func printLineOfPlots(width, line int, plots []*Plot) {
 		if plot == nil {
 			fmt.Print(" ")
 		} else {
-			printRune(plot.c)
+			printRune(plot.c, plot.color)
 		}
 	}
 }

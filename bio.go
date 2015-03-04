@@ -25,8 +25,8 @@ func biorythm(width, daysAlive int) (plots [3]*Plot) {
 		intel[i] = int(10 * scaledSin(float64(daysAlive+i), 33))
 	}
 
-	plot := &Plot{values: phisical, c: 'P'}
-	plot2 := &Plot{values: emotional, c: 'E'}
-	plot3 := &Plot{values: intel, c: 'I'}
+	plot := &Plot{values: phisical, c: 'P', color: BLUE}
+	plot2 := &Plot{values: emotional, c: 'E', color: RED}
+	plot3 := &Plot{values: intel, c: 'I', color: GREEN}
 	return [...]*Plot{plot, plot2, plot3}
 }
