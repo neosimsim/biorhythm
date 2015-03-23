@@ -1,2 +1,2 @@
 # biorythm
-Go application to plot once biorhythm.
+[go](https://golang.org) application to print the biorythm to the command line.
