@@ -57,6 +57,6 @@ func main() {
 
 	daysAlive := int(time.Since(birthday).Hours() / 24)
 	fmt.Printf("Sie haben bis jetzt %v Tage gelebt.\n", daysAlive)
-	plots := biorythm(width, daysAlive)
-	printPlot(width, plots[0], plots[1], plots[2])
+	p, e, i := biorythm(width, daysAlive)
+	plotValues([]string{"p", "e", "i"}, p, e, i)
 }

@@ -4,29 +4,20 @@ import (
 	"math"
 )
 
+const (
+	physicalInterval    = 23
+	emotionalInterval   = 28
+	intelectualInterval = 33
+)
+
 func scaledSin(x, interval float64) float64 {
 	x = 2 * math.Pi / interval * x
 	return math.Sin(x)
 }
 
-func biorythm(width, daysAlive int) (plots [3]*Plot) {
-	phisical := make([]int, width)
-	for i := 0; i < width; i++ {
-		phisical[i] = int(7 * scaledSin(float64(daysAlive+i), 23))
-	}
-
-	emotional := make([]int, width)
-	for i := 0; i < width; i++ {
-		emotional[i] = int(7 * scaledSin(float64(daysAlive+i), 28))
-	}
-
-	intel := make([]int, width)
-	for i := 0; i < width; i++ {
-		intel[i] = int(7 * scaledSin(float64(daysAlive+i), 33))
-	}
-
-	plot := &Plot{values: phisical, c: 'P', color: BLUE}
-	plot2 := &Plot{values: emotional, c: 'E', color: RED}
-	plot3 := &Plot{values: intel, c: 'I', color: GREEN}
-	return [...]*Plot{plot, plot2, plot3}
+func biorythm(width, daysAlive int) (physical float64, emotional float64, intel float64) {
+	physical = scaledSin(float64(daysAlive), physicalInterval)
+	emotional = scaledSin(float64(daysAlive), emotionalInterval)
+	intel = scaledSin(float64(daysAlive), intelectualInterval)
+	return
 }
