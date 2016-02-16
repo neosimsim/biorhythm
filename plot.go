@@ -25,8 +25,8 @@ func plot(value float64) {
 	if value > 0 {
 		printTimes('.', width)
 	} else {
-		printTimes('.', width-discreteValue)
-		printTimes('#', discreteValue)
+		printTimes('.', width+discreteValue)
+		printTimes('#', -discreteValue)
 	}
 	fmt.Printf("|")
 	if value <= 0 {
@@ -41,7 +41,7 @@ func plotValues(legend []string, values ...float64) {
 	for index, value := range values {
 		fmt.Print(legend[index], ":")
 		plot(value)
-		fmt.Print(" ")
+		fmt.Print("  ")
 	}
 	fmt.Print("\n")
 }
