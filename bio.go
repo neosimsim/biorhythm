@@ -15,7 +15,7 @@ func scaledSin(x, interval float64) float64 {
 	return math.Sin(x)
 }
 
-func biorythm(width, daysAlive int) (physical float64, emotional float64, intel float64) {
+func biorythm(daysAlive int) (physical float64, emotional float64, intel float64) {
 	physical = scaledSin(float64(daysAlive), physicalInterval)
 	emotional = scaledSin(float64(daysAlive), emotionalInterval)
 	intel = scaledSin(float64(daysAlive), intelectualInterval)
