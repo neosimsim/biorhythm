@@ -11,5 +11,5 @@ go get github.com/neosimsim/biorhythm
 
 ## Usage
 ```bash
-biorhythm 1970-01-01
+biorhythm 1970-01-31
 ```
